@@ -3,97 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Vocacional</title>
+    <title>Verificador de senhas</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Teste Vocacional</h1>
-        <p class="subtitle">Responda e descubra qual curso técnico combina mais com você!</p>
+<header>
+    <h1>🔐 Segurança de Dados</h1>
+    <p>Aprenda sobre criptografia e teste a força da sua senha!</p>
+</header>
 
-        <form id="quizForm">
+<main>
 
-            <!-- Perguntas -->
-            <div class="question">
-                <p>1. Você gosta de resolver problemas usando lógica?</p>
-                <label><input type="radio" name="q1" value="ds" required> Sim</label>
-                <label><input type="radio" name="q1" value="adm"> Mais ou menos</label>
-                <label><input type="radio" name="q1" value="ac"> Não</label>
-            </div>
+    <!-- COFRE DIGITAL -->
+    <section class="card">
+        <h2> Cofre Digital – Criptografia</h2>
+        <p>Digite uma mensagem e veja como ela é criptografada.</p>
 
-            <div class="question">
-                <p>2. Você prefere atividades bem organizadas e rotineiras?</p>
-                <label><input type="radio" name="q2" value="adm" required> Sim</label>
-                <label><input type="radio" name="q2" value="ac"> Às vezes</label>
-                <label><input type="radio" name="q2" value="ds"> Não</label>
-            </div>
+        <textarea id="mensagem" placeholder="Digite sua mensagem..."></textarea>
 
-            <div class="question">
-                <p>3. Você se interessa por saúde e análises laboratoriais?</p>
-                <label><input type="radio" name="q3" value="ac" required> Sim</label>
-                <label><input type="radio" name="q3" value="adm"> Um pouco</label>
-                <label><input type="radio" name="q3" value="ds"> Não</label>
-            </div>
+        <button onclick="criptografarMensagem()">Criptografar</button>
 
-            <div class="question">
-                <p>4. Você gosta de trabalhar com computadores?</p>
-                <label><input type="radio" name="q4" value="ds" required> Sim</label>
-                <label><input type="radio" name="q4" value="adm"> Às vezes</label>
-                <label><input type="radio" name="q4" value="ac"> Não</label>
-            </div>
+        <h3> Mensagem Criptografada:</h3>
+        <textarea id="resultadoCripto" readonly></textarea>
+    </section>
 
-            <div class="question">
-                <p>5. Você se vê liderando pessoas ou equipes?</p>
-                <label><input type="radio" name="q5" value="adm" required> Sim</label>
-                <label><input type="radio" name="q5" value="ds"> Talvez</label>
-                <label><input type="radio" name="q5" value="ac"> Não</label>
-            </div>
 
-            <div class="question">
-                <p>6. Você gosta de seguir normas e procedimentos precisos?</p>
-                <label><input type="radio" name="q6" value="ac" required> Sim</label>
-                <label><input type="radio" name="q6" value="adm"> Às vezes</label>
-                <label><input type="radio" name="q6" value="ds"> Não</label>
-            </div>
+    <!-- SENHA FORTE -->
+    <section class="card">
+        <h2> Verificador de Senha Forte</h2>
+        <p>Digite uma senha e veja a força dela.</p>
 
-            <div class="question">
-                <p>7. Você gosta de criar, programar ou montar sistemas?</p>
-                <label><input type="radio" name="q7" value="ds" required> Sim</label>
-                <label><input type="radio" name="q7" value="adm"> Um pouco</label>
-                <label><input type="radio" name="q7" value="ac"> Não</label>
-            </div>
+        <input type="password" id="senhaInput" placeholder="Digite sua senha..." oninput="avaliarSenha()">
 
-            <div class="question">
-                <p>8. Você se considera uma pessoa organizada?</p>
-                <label><input type="radio" name="q8" value="adm" required> Sim</label>
-                <label><input type="radio" name="q8" value="ac"> Mais ou menos</label>
-                <label><input type="radio" name="q8" value="ds"> Não</label>
-            </div>
+        <div id="barraForca">
+            <div id="nivel"></div>
+        </div>
 
-            <div class="question">
-                <p>9. Você se interessa por biologia e química?</p>
-                <label><input type="radio" name="q9" value="ac" required> Sim</label>
-                <label><input type="radio" name="q9" value="adm"> Às vezes</label>
-                <label><input type="radio" name="q9" value="ds"> Não</label>
-            </div>
+        <p id="mensagemForca"></p>
 
-            <div class="question">
-                <p>10. Você gosta de trabalhar com tecnologia?</p>
-                <label><input type="radio" name="q10" value="ds" required> Sim</label>
-                <label><input type="radio" name="q10" value="adm"> Um pouco</label>
-                <label><input type="radio" name="q10" value="ac"> Não</label>
-            </div>
+        <button onclick="gerarSenha()">Gerar Senha Forte</button>
+        <input type="text" id="senhaGerada" readonly>
+    </section>
 
-            <button type="submit" class="btn">Ver Resultado</button>
-        </form>
+</main>
 
-        <!-- Resultado -->
-        <div id="resultado" class="resultado hidden"></div>
-        <div id="resumo" class="resumo hidden"></div>
+<footer>
+    <p>Projeto desenvolvido pela Turma de DS • Feira das Profissões</p>
+</footer>
 
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
